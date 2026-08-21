@@ -147,11 +147,32 @@ h2 em{font-style:italic;color:var(--oro-soft)}
 .dg-line{stroke:var(--line-light);stroke-width:1}
 
 /* origens */
-.origens{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:1px;margin-top:44px;background:var(--line-dark);border:1px solid var(--line-dark)}
-.org{background:var(--humo);padding:clamp(24px,3.4vw,32px)}
-.org__n{font-family:var(--display);font-size:clamp(19px,2.3vw,23px);line-height:1.25}
-.org__tag{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--oro);margin-top:9px}
-.org__d{font-size:15px;line-height:1.72;color:var(--ash-dim);margin-top:14px}
+.origens{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(278px,1fr));
+  gap:1px;margin-top:44px;background:var(--line-dark);border:1px solid var(--line-dark);
+}
+.org{
+  background:var(--humo);padding:clamp(26px,3.6vw,38px);
+  display:flex;flex-direction:column;
+  transition:background .3s ease;
+}
+.org:hover{background:#1A130D}
+/* altura reservada para o nome: alinha as etiquetas mesmo quando o título quebra */
+.org__n{
+  font-family:var(--display);font-size:clamp(19px,2.2vw,23px);line-height:1.22;
+  min-height:2.44em;
+}
+.org__tag{
+  font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--oro);margin-top:4px;
+}
+.org__d{font-size:15px;line-height:1.75;color:var(--ash-dim);margin-top:16px}
+/* a ficha desce até o rodapé do cartão e ocupa a sobra */
+.org__foot{
+  margin-top:auto;padding-top:22px;border-top:1px solid var(--line-dark);
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--oro-soft);
+}
 
 /* passos */
 .passos{margin-top:44px;border-top:1px solid var(--line-light)}
@@ -160,6 +181,18 @@ h2 em{font-style:italic;color:var(--oro-soft)}
 .passo__t{font-family:var(--display);font-size:clamp(19px,2.3vw,23px);line-height:1.3}
 .passo__d{font-size:15.5px;line-height:1.74;color:var(--muted);margin-top:8px}
 @media(max-width:700px){.passo{grid-template-columns:1fr;gap:8px;align-items:start}}
+/* variante numerada: algarismo grande na serifada, no lugar do rótulo */
+.passos--num .passo{grid-template-columns:78px 1fr}
+.passos--num .passo__k{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(32px,4.4vw,46px);line-height:.9;
+  letter-spacing:0;text-transform:none;
+  color:var(--oro-ink);opacity:.85;
+}
+@media(max-width:700px){
+  .passos--num .passo{grid-template-columns:1fr}
+  .passos--num .passo__k{font-size:30px}
+}
 
 /* erros — vive sobre o cedro, então usa a paleta clara */
 .erros__t{margin-top:clamp(46px,6vw,64px)}
@@ -179,14 +212,59 @@ h2 em{font-style:italic;color:var(--oro-soft)}
 .erros__d{font-size:15.5px;line-height:1.72;color:var(--muted);margin-top:6px}
 
 /* glossário */
-.glos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px clamp(28px,5vw,54px);margin-top:42px}
-.glos dt{font-family:var(--display);font-size:19px;line-height:1.25}
-.glos dd{font-size:15px;line-height:1.7;color:var(--muted);margin-top:7px}
+/* filetes no rodapé de cada verbete alinham as linhas mesmo com textos desiguais */
+.glos{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(296px,1fr));
+  gap:0 clamp(30px,5vw,64px);margin-top:38px;
+  border-top:1px solid var(--line-dark);
+}
+.glos>div{padding:20px 0 22px;border-bottom:1px solid var(--line-dark)}
+.glos dt{font-family:var(--display);font-size:19px;line-height:1.25;color:var(--ash)}
+.glos dd{font-size:15px;line-height:1.72;color:var(--ash-faint);margin-top:8px;max-width:44ch}
 
-/* chamada final */
-.cta{text-align:center;max-width:640px;margin:0 auto}
-.cta h2{margin-top:16px}
-.cta__b{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+/* chamada final — painel escuro sobre o cedro */
+.closer{
+  position:relative;max-width:770px;margin:0 auto;overflow:hidden;
+  background:linear-gradient(180deg,#1C150F 0%,#0F0B07 100%);
+  border:1px solid rgba(201,161,91,.3);border-radius:2px;
+  padding:clamp(40px,6.4vw,70px) clamp(24px,5vw,64px) clamp(34px,5vw,56px);
+  text-align:center;color:var(--ash);
+}
+.closer::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(88% 62% at 50% 0%,rgba(201,161,91,.15),transparent 62%);
+}
+.closer__edge{
+  position:absolute;inset:9px;pointer-events:none;
+  border:1px solid rgba(201,161,91,.16);border-radius:1px;
+}
+.closer>*{position:relative}
+.closer__kicker{
+  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--oro);
+}
+.closer__h{
+  font-family:var(--display);font-weight:400;line-height:1.16;letter-spacing:-.012em;
+  font-size:clamp(26px,4vw,42px);margin-top:16px;color:var(--ash);
+}
+.closer__h em{font-style:italic;color:var(--oro-soft)}
+.closer__rule{
+  display:flex;align-items:center;justify-content:center;gap:12px;margin-top:24px;
+}
+.closer__rule span{width:54px;height:1px;background:rgba(201,161,91,.42)}
+.closer__rule i{width:5px;height:5px;background:var(--oro);transform:rotate(45deg)}
+.closer__p{
+  font-size:16.5px;line-height:1.78;color:var(--ash-dim);
+  max-width:530px;margin:26px auto 0;
+}
+.closer__b{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.closer__note{
+  font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ash-faint);margin-top:26px;
+}
+.btn--wa{background:var(--oro);color:#0F0B07}
+.btn--wa:hover{background:var(--oro-soft);transform:translateY(-2px)}
+.btn--wa svg{width:16px;height:16px;fill:currentColor;flex:none}
 
 /* rodapé */
 footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--line-dark)}
@@ -230,8 +308,8 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
     <nav class="nav__links" aria-label="Navegação principal">
       <a href="index.html#tempo">O tempo</a>
       <a href="index.html#vitolas">Vitolas</a>
-      <a href="index.html#casa">A casa</a>
       <a href="#anatomia">Guia</a>
+      <a href="acessorios.html">Acessórios</a>
       <a href="index.html#visita">Visita</a>
     </nav>
   </div>
@@ -272,58 +350,160 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
       </div>
 
       <figure class="fig rv">
-        <svg viewBox="0 0 800 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="figT">
-          <title id="figT">Diagrama das partes de um charuto: pé, capa, anilha, cabeça e o corte transversal mostrando tripa, capote e capa</title>
+        <svg viewBox="0 0 820 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="figT">
+          <title id="figT">Ilustração de um charuto aceso, identificando pé, capa, anilha e cabeça, com um corte transversal mostrando tripa, capote e capa</title>
 
-          <!-- corpo do charuto -->
           <defs>
-            <linearGradient id="leaf" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#7A5638"/>
-              <stop offset="55%" stop-color="#57391F"/>
-              <stop offset="100%" stop-color="#3A2413"/>
+            <!-- capa clara, com sombreado cilíndrico -->
+            <linearGradient id="wrap" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#8A6231"/>
+              <stop offset="12%"  stop-color="#D2A765"/>
+              <stop offset="32%"  stop-color="#E2BC83"/>
+              <stop offset="52%"  stop-color="#CE9F5D"/>
+              <stop offset="76%"  stop-color="#9C6F37"/>
+              <stop offset="92%"  stop-color="#755125"/>
+              <stop offset="100%" stop-color="#63431F"/>
             </linearGradient>
+
+            <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#FFF3DC" stop-opacity=".42"/>
+              <stop offset="100%" stop-color="#FFF3DC" stop-opacity="0"/>
+            </linearGradient>
+
+            <!-- anilha -->
+            <linearGradient id="foil" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#8A5C1E"/>
+              <stop offset="18%"  stop-color="#F5DC9B"/>
+              <stop offset="46%"  stop-color="#E5BC4E"/>
+              <stop offset="74%"  stop-color="#F0D078"/>
+              <stop offset="100%" stop-color="#7E5416"/>
+            </linearGradient>
+
+            <!-- brasa -->
+            <radialGradient id="ember" cx="50%" cy="50%" r="60%">
+              <stop offset="0%"   stop-color="#FFDCA0"/>
+              <stop offset="28%"  stop-color="#FF9A32"/>
+              <stop offset="58%"  stop-color="#D9430A"/>
+              <stop offset="82%"  stop-color="#7A2205"/>
+              <stop offset="100%" stop-color="#2E1408"/>
+            </radialGradient>
+            <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+              <stop offset="0%"   stop-color="#FF8A2B" stop-opacity=".42"/>
+              <stop offset="100%" stop-color="#FF8A2B" stop-opacity="0"/>
+            </radialGradient>
+
+            <radialGradient id="core" cx="42%" cy="34%" r="70%">
+              <stop offset="0%"   stop-color="#7A5433"/>
+              <stop offset="100%" stop-color="#3B2614"/>
+            </radialGradient>
+
+            <path id="cigarBody"
+              d="M124 117 Q 382 111 572 120 C 634 126 672 134 690 150
+                 C 672 166 634 174 572 180 Q 382 189 124 183 Z"/>
+            <clipPath id="clipBody"><use href="#cigarBody"/></clipPath>
           </defs>
 
-          <path d="M150 96 H672 a34 34 0 0 1 0 68 H150 Z" fill="url(#leaf)"/>
-          <!-- pé exposto -->
-          <ellipse cx="150" cy="130" rx="9" ry="34" fill="#8A6A45"/>
-          <ellipse cx="150" cy="130" rx="5" ry="22" fill="#6B4E2E"/>
-          <!-- anilha -->
-          <rect x="560" y="94" width="72" height="72" fill="#C9A15B"/>
-          <rect x="560" y="102" width="72" height="1.6" fill="#8A5C2E"/>
-          <rect x="560" y="156" width="72" height="1.6" fill="#8A5C2E"/>
+          <!-- charuto inclinado -->
+          <g transform="rotate(-10 410 150)">
 
-          <!-- linhas guia -->
-          <line class="dg-line" x1="150" y1="88" x2="150" y2="56"/>
-          <line class="dg-line" x1="150" y1="56" x2="196" y2="56"/>
-          <line class="dg-line" x1="360" y1="96" x2="360" y2="56"/>
-          <line class="dg-line" x1="360" y1="56" x2="406" y2="56"/>
-          <line class="dg-line" x1="596" y1="94" x2="596" y2="56"/>
-          <line class="dg-line" x1="596" y1="56" x2="642" y2="56"/>
-          <line class="dg-line" x1="694" y1="164" x2="694" y2="198"/>
-          <line class="dg-line" x1="694" y1="198" x2="640" y2="198"/>
+            <ellipse cx="124" cy="150" rx="42" ry="62" fill="url(#halo)"/>
+            <use href="#cigarBody" fill="url(#wrap)"/>
 
-          <text class="dg-label" x="196" y="52">Pé</text>
-          <text class="dg-sub" x="196" y="72">a ponta que acende</text>
-          <text class="dg-label" x="406" y="52">Capa</text>
-          <text class="dg-sub" x="406" y="72">a folha que se vê</text>
-          <text class="dg-label" x="642" y="52">Anilha</text>
-          <text class="dg-label" x="640" y="203" text-anchor="end">Cabeça</text>
-          <text class="dg-sub" x="640" y="223" text-anchor="end">a ponta que se corta</text>
+            <g clip-path="url(#clipBody)">
+              <!-- emendas em espiral da capa -->
+              <g stroke="#7A5220" stroke-opacity=".34" stroke-width="2">
+                <path d="M110 200 L 178 100"/><path d="M158 200 L 226 100"/>
+                <path d="M206 200 L 274 100"/><path d="M254 200 L 322 100"/>
+                <path d="M302 200 L 370 100"/><path d="M350 200 L 418 100"/>
+                <path d="M398 200 L 466 100"/><path d="M446 200 L 514 100"/>
+                <path d="M494 200 L 562 100"/><path d="M542 200 L 610 100"/>
+                <path d="M590 200 L 658 100"/><path d="M638 200 L 706 100"/>
+              </g>
+              <g stroke="#FBE3B4" stroke-opacity=".26" stroke-width="1.3">
+                <path d="M114 200 L 182 100"/><path d="M162 200 L 230 100"/>
+                <path d="M210 200 L 278 100"/><path d="M258 200 L 326 100"/>
+                <path d="M306 200 L 374 100"/><path d="M354 200 L 422 100"/>
+                <path d="M402 200 L 470 100"/><path d="M450 200 L 518 100"/>
+                <path d="M498 200 L 566 100"/><path d="M546 200 L 614 100"/>
+                <path d="M594 200 L 662 100"/><path d="M642 200 L 710 100"/>
+              </g>
+              <!-- manchas da folha -->
+              <g fill="#8A6231" opacity=".2">
+                <ellipse cx="248" cy="140" rx="40" ry="10"/>
+                <ellipse cx="430" cy="166" rx="52" ry="9"/>
+                <ellipse cx="530" cy="133" rx="30" ry="8"/>
+              </g>
+              <!-- brilho alto -->
+              <path d="M132 125 Q 380 119 600 129 L 600 140 Q 380 130 132 136 Z" fill="url(#sheen)"/>
+              <!-- capa chamuscada junto da brasa -->
+              <ellipse cx="140" cy="150" rx="26" ry="40" fill="#2E2119" opacity=".55"/>
+              <ellipse cx="130" cy="150" rx="16" ry="38" fill="#1C130D" opacity=".6"/>
+            </g>
+
+            <!-- pé aceso -->
+            <ellipse cx="126" cy="150" rx="13" ry="34" fill="#332A24"/>
+            <ellipse cx="125" cy="150" rx="10" ry="29" fill="url(#ember)"/>
+            <ellipse cx="124" cy="149" rx="4.6" ry="14" fill="#FFC978" opacity=".92"/>
+            <g fill="#241A14" opacity=".8">
+              <ellipse cx="128" cy="132" rx="3.4" ry="4.4"/>
+              <ellipse cx="127" cy="167" rx="3" ry="4"/>
+            </g>
+
+            <!-- anilha: dourada com dois filetes pretos -->
+            <g>
+              <path d="M596 119.4 Q 624 119.2 650 122.6 L 650 177.4 Q 624 180.8 596 180.6 Z"
+                    fill="url(#foil)"/>
+              <path d="M604 120 Q 626 120.4 650 123.6 L 650 130.4 Q 626 127.2 604 126.8 Z" fill="#141008"/>
+              <path d="M604 173.2 Q 626 172.8 650 169.6 L 650 176.4 Q 626 179.6 604 180 Z" fill="#141008"/>
+            </g>
+          </g>
+
+          <!-- linhas guia e rótulos -->
+          <g class="dg-line" fill="none">
+            <path d="M355 126 L 355 72 L 399 72"/>
+            <path d="M616 83 L 616 46 L 656 46"/>
+            <path d="M659 124 L 659 192 L 615 192"/>
+            <path d="M134 232 L 134 264 L 178 264"/>
+          </g>
+          <g fill="#8A5C2E">
+            <circle cx="355" cy="126" r="2.4"/><circle cx="616" cy="83" r="2.4"/>
+            <circle cx="659" cy="124" r="2.4"/><circle cx="134" cy="232" r="2.4"/>
+          </g>
+
+          <text class="dg-label" x="407" y="68">Capa</text>
+          <text class="dg-sub"   x="407" y="88">a folha que se vê</text>
+          <text class="dg-label" x="664" y="42">Anilha</text>
+          <text class="dg-label" x="607" y="188" text-anchor="end">Cabeça</text>
+          <text class="dg-sub"   x="607" y="208" text-anchor="end">a ponta que se corta</text>
+          <text class="dg-label" x="186" y="260">Pé</text>
+          <text class="dg-sub"   x="186" y="280">a ponta que acende</text>
 
           <!-- corte transversal -->
-          <circle cx="168" cy="268" r="48" fill="#3A2413"/>
-          <circle cx="168" cy="268" r="40" fill="#57391F"/>
-          <circle cx="168" cy="268" r="31" fill="#7A5638"/>
-          <line class="dg-line" x1="216" y1="248" x2="268" y2="248"/>
-          <line class="dg-line" x1="204" y1="268" x2="268" y2="268"/>
-          <line class="dg-line" x1="199" y1="288" x2="268" y2="288"/>
-          <text class="dg-label" x="278" y="252">Capa</text>
-          <text class="dg-label" x="278" y="272">Capote</text>
-          <text class="dg-label" x="278" y="292">Tripa</text>
-          <text class="dg-sub" x="420" y="252">folha externa, define o visual e parte do sabor</text>
-          <text class="dg-sub" x="420" y="272">folha que amarra o recheio</text>
-          <text class="dg-sub" x="420" y="292">o miolo, onde mora a força</text>
+          <g>
+            <circle cx="120" cy="352" r="50" fill="#3B2614"/>
+            <circle cx="120" cy="352" r="43" fill="#5A3D25"/>
+            <circle cx="120" cy="352" r="35" fill="url(#core)"/>
+            <g stroke="#A88052" stroke-opacity=".55" stroke-width="1.3">
+              <path d="M104 338 L 112 346"/><path d="M122 333 L 116 342"/>
+              <path d="M136 340 L 128 348"/><path d="M141 356 L 131 357"/>
+              <path d="M130 370 L 122 363"/><path d="M108 367 L 116 359"/>
+              <path d="M99 353 L 109 354"/><path d="M120 348 L 126 355"/>
+            </g>
+            <circle cx="120" cy="352" r="43" fill="none" stroke="#2E1C0D" stroke-opacity=".55" stroke-width="1.6"/>
+            <circle cx="120" cy="352" r="35" fill="none" stroke="#2E1C0D" stroke-opacity=".55" stroke-width="1.6"/>
+          </g>
+
+          <g class="dg-line" fill="none">
+            <path d="M172 322 L 216 322"/>
+            <path d="M166 352 L 216 352"/>
+            <path d="M158 382 L 216 382"/>
+          </g>
+          <text class="dg-label" x="226" y="326">Capa</text>
+          <text class="dg-label" x="226" y="356">Capote</text>
+          <text class="dg-label" x="226" y="386">Tripa</text>
+          <text class="dg-sub" x="352" y="326">folha externa, define o visual e parte do sabor</text>
+          <text class="dg-sub" x="352" y="356">folha que amarra o recheio</text>
+          <text class="dg-sub" x="352" y="386">o miolo, onde mora a força</text>
         </svg>
         <figcaption>As partes de um charuto e o corte transversal</figcaption>
       </figure>
@@ -377,6 +557,7 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
             casa. Corpo médio na maior parte das vezes, e uma consistência de
             construção que virou referência mundial.
           </p>
+          <p class="org__foot">Corpo médio · terroso</p>
         </div>
         <div class="org rv">
           <div class="org__n">Nicarágua</div>
@@ -386,6 +567,7 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
             fundo. É a origem que mais cresceu nas últimas duas décadas e onde
             está a melhor relação entre preço e intensidade.
           </p>
+          <p class="org__foot">Corpo forte · apimentado</p>
         </div>
         <div class="org rv">
           <div class="org__n">República Dominicana</div>
@@ -395,6 +577,7 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
             origem mais amigável para quem está começando e não quer levar um
             susto na terceira tragada.
           </p>
+          <p class="org__foot">Corpo suave · cremoso</p>
         </div>
         <div class="org rv">
           <div class="org__n">Honduras</div>
@@ -403,6 +586,7 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
             Meio-termo robusto: mais encorpado que o dominicano, mais domado que
             o nicaraguense. Costuma trazer nota de couro e madeira seca.
           </p>
+          <p class="org__foot">Corpo médio a forte · couro</p>
         </div>
         <div class="org rv">
           <div class="org__n">Brasil</div>
@@ -413,6 +597,7 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
             fim, com boa queima. É a origem mais subestimada do mercado — e a
             que você encontra por preço justo, sem câmbio no meio.
           </p>
+          <p class="org__foot">Corpo médio · final doce</p>
         </div>
         <div class="org rv">
           <div class="org__n">Equador</div>
@@ -422,6 +607,7 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
             mundo. O céu nublado permanente cria folhas finas e sedosas, ideais
             para a camada externa.
           </p>
+          <p class="org__foot">Entra quase sempre só como capa</p>
         </div>
       </div>
     </div>
@@ -533,9 +719,9 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
         </p>
       </div>
 
-      <div class="passos">
+      <div class="passos passos--num">
         <div class="passo rv">
-          <div class="passo__k">Primeiro</div>
+          <div class="passo__k">1</div>
           <div>
             <div class="passo__t">Escolha a chama certa</div>
             <p class="passo__d">
@@ -546,7 +732,7 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
           </div>
         </div>
         <div class="passo rv">
-          <div class="passo__k">Segundo</div>
+          <div class="passo__k">2</div>
           <div>
             <div class="passo__t">Toste o pé sem encostar</div>
             <p class="passo__d">
@@ -557,7 +743,7 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
           </div>
         </div>
         <div class="passo rv">
-          <div class="passo__k">Terceiro</div>
+          <div class="passo__k">3</div>
           <div>
             <div class="passo__t">Puxe girando</div>
             <p class="passo__d">
@@ -567,7 +753,7 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
           </div>
         </div>
         <div class="passo rv">
-          <div class="passo__k">Quarto</div>
+          <div class="passo__k">4</div>
           <div>
             <div class="passo__t">Confira a brasa</div>
             <p class="passo__d">
@@ -710,10 +896,6 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
 
       <dl class="glos rv">
         <div>
-          <dt>Vitola</dt>
-          <dd>O formato do charuto: comprimento e diâmetro. Robusto, Toro e Churchill são vitolas.</dd>
-        </div>
-        <div>
           <dt>Anel</dt>
           <dd>O diâmetro, medido em 64 avos de polegada. Anel 50 equivale a cerca de 20 mm.</dd>
         </div>
@@ -722,28 +904,32 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
           <dd>A faixa de papel perto da cabeça. Tire só depois de fumar um pouco, quando a goma amolece.</dd>
         </div>
         <div>
-          <dt>Puro</dt>
-          <dd>Charuto feito inteiramente com folhas de um único país.</dd>
-        </div>
-        <div>
           <dt>Ligero, seco, volado</dt>
           <dd>As folhas da tripa conforme a altura no pé: ligero é a de cima e a mais forte, volado a de baixo e a que melhor queima.</dd>
         </div>
         <div>
-          <dt>Torcedor</dt>
-          <dd>Quem enrola o charuto à mão. Um bom torcedor faz algumas centenas por dia.</dd>
+          <dt>Puro</dt>
+          <dd>Charuto feito inteiramente com folhas de um único país.</dd>
         </div>
         <div>
           <dt>Retronasal</dt>
           <dd>Soltar um pouco de fumaça pelo nariz. É onde metade do sabor aparece — comece com pouco.</dd>
         </div>
         <div>
+          <dt>Temperar</dt>
+          <dd>Umedecer o cedro de um humidor novo antes do primeiro uso, para que ele não roube umidade dos charutos.</dd>
+        </div>
+        <div>
+          <dt>Torcedor</dt>
+          <dd>Quem enrola o charuto à mão. Um bom torcedor faz algumas centenas por dia.</dd>
+        </div>
+        <div>
           <dt>Túnel</dt>
           <dd>Quando o miolo queima na frente da capa. Sinal de charuto seco ou mal aceso.</dd>
         </div>
         <div>
-          <dt>Temperar</dt>
-          <dd>Umedecer o cedro de um humidor novo antes do primeiro uso, para que ele não roube umidade dos charutos.</dd>
+          <dt>Vitola</dt>
+          <dd>O formato do charuto: comprimento e diâmetro. Robusto, Toro e Churchill são vitolas.</dd>
         </div>
       </dl>
     </div>
@@ -751,17 +937,31 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
 
   <!-- CHAMADA -->
   <section class="sec--cedro">
-    <div class="wrap cta">
-      <p class="eyebrow rv">Próximo passo</p>
-      <h2 class="rv">O resto se aprende <em>junto conosco</em>.</h2>
-      <div class="rule rule--center rv" style="margin-left:auto;margin-right:auto"></div>
-      <p class="lead rv" style="margin-left:auto;margin-right:auto">
-        O texto ajuda até certo ponto, porém, acesse nossa loja, e nos diga o
-        que leu aqui e o que ainda não entendeu, nós iremos lhe explicar.
-      </p>
-      <div class="cta__b rv">
-        <a href="https://wa.me/5549998226818" class="btn btn--dark" target="_blank" rel="noopener">Converse conosco</a>
-        <a href="index.html#vitolas" class="btn btn--line">Ver os formatos</a>
+    <div class="wrap">
+      <div class="closer rv">
+        <span class="closer__edge" aria-hidden="true"></span>
+
+        <p class="closer__kicker">Próximo passo</p>
+        <h2 class="closer__h">O resto se aprende <em>junto conosco</em>.</h2>
+        <div class="closer__rule" aria-hidden="true"><span></span><i></i><span></span></div>
+
+        <p class="closer__p">
+          Texto ajuda até certo ponto. Entre no nosso grupo do WhatsApp: é lá que
+          tiramos dúvida de quem está começando, avisamos o que chegou na loja e
+          combinamos as rodadas. Pergunte o que leu aqui e o que ainda não
+          entendeu — a gente explica.
+        </p>
+
+        <div class="closer__b">
+          <!-- TROCAR: link de convite do seu grupo (WhatsApp > grupo > Convidar via link) -->
+          <a href="https://chat.whatsapp.com/SEU-LINK-AQUI" class="btn btn--wa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.19.2-.58.2-1.08.14-1.19-.06-.1-.22-.16-.47-.28Z"/></svg>
+            Entrar no grupo do WhatsApp
+          </a>
+          <a href="https://wa.me/5549998226818" class="btn btn--ghost" target="_blank" rel="noopener">Falar direto com a gente</a>
+        </div>
+
+        <p class="closer__note">Grupo exclusivo para maiores de 18 anos</p>
       </div>
     </div>
   </section>
@@ -829,5 +1029,6 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
   setTimeout(showTop,80);
 })();
 </script>
+
 </body>
 </html>
