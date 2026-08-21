@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Como começar no charuto — Guia da ALPAG CIGAR</title>
+<meta name="description" content="Guia prático de charuto: anatomia, origens, como cortar, acender, fumar e guardar. Sem jargão e sem mistério.">
+<meta name="theme-color" content="#15100C">
+<link rel="canonical" href="https://www.alpagltda.com.br/aprender.html">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="ALPAG CIGAR">
+<meta property="og:title" content="Como começar no charuto — Guia da ALPAG CIGAR">
+<meta property="og:description" content="Anatomia, origens, corte, fogo, ritmo e guarda. O básico bem explicado.">
+<meta property="og:url" content="https://www.alpagltda.com.br/aprender.html">
+<!-- TROCAR: imagem 1200x630 -->
+<meta property="og:image" content="https://www.alpagltda.com.br/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Archivo:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --humo:#15100C;
+  --humo-2:#0D0907;
+  --line-dark:#2E241D;
+  --cedro:#E6D6BE;
+  --line-light:#D2BFA2;
+  --ash:#E9E3D8;
+  --ash-dim:rgba(233,227,216,.72);
+  --ash-faint:rgba(233,227,216,.5);
+  --oro:#C9A15B;
+  --oro-soft:#E0C48C;
+  --oro-faint:rgba(201,161,91,.38);
+  --oro-ink:#8A5C2E;
+  --ink:#1B1410;
+  --ink-2:#3A2C22;
+  --muted:#6B5A4A;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Archivo",system-ui,-apple-system,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --pad:clamp(20px,5vw,64px);
+  --maxw:1120px;
+  --navh:70px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--humo);color:var(--ash);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--oro);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);width:100%}
+.wrap--tight{max-width:820px}
+
+/* portão */
+.gate{position:fixed;inset:0;z-index:200;background:var(--humo-2);display:flex;align-items:center;justify-content:center;padding:24px}
+.gate[hidden]{display:none}
+.gate__box{max-width:430px;text-align:center}
+.gate__mark{font-family:var(--display);font-size:24px;letter-spacing:.22em;color:var(--oro);padding-left:.22em}
+.gate__q{font-family:var(--display);font-size:clamp(22px,4vw,30px);line-height:1.3;margin-top:24px}
+.gate__note{font-size:14px;color:var(--ash-faint);margin-top:15px;line-height:1.6}
+.gate__btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.gate__deny{display:none;font-size:14.5px;color:var(--ash-dim);margin-top:28px;line-height:1.7}
+.gate.denied .gate__q,.gate.denied .gate__btns,.gate.denied .gate__note{display:none}
+.gate.denied .gate__deny{display:block}
+
+/* botões */
+.btn{
+  font-family:var(--sans);font-size:14px;font-weight:500;padding:14px 28px;
+  border:1px solid transparent;border-radius:1px;display:inline-flex;align-items:center;gap:9px;
+  cursor:pointer;background:none;color:inherit;
+  transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s ease;
+}
+.btn--gold{background:var(--oro);color:var(--humo-2)}
+.btn--gold:hover{background:var(--oro-soft);transform:translateY(-2px)}
+.btn--ghost{border-color:rgba(233,227,216,.3);color:var(--ash)}
+.btn--ghost:hover{border-color:var(--oro);color:var(--oro-soft);transform:translateY(-2px)}
+.btn--dark{background:var(--ink);color:var(--cedro)}
+.btn--dark:hover{background:var(--humo);transform:translateY(-2px)}
+.btn--line{border-color:var(--line-light);color:var(--ink)}
+.btn--line:hover{border-color:var(--ink);transform:translateY(-2px)}
+
+/* nav */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid transparent;transition:background .35s ease,border-color .35s ease}
+header.nav.solid{background:rgba(21,16,12,.94);backdrop-filter:blur(10px);border-bottom-color:var(--line-dark)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;height:var(--navh)}
+.brand{font-family:var(--display);font-size:19px;letter-spacing:.2em;color:var(--ash);padding-left:.2em}
+.brand__c{font-style:italic;color:var(--oro);letter-spacing:.12em}
+.nav__links{display:flex;gap:30px;align-items:center}
+.nav__links a{font-size:13.5px;color:var(--ash-faint);transition:color .25s ease}
+.nav__links a:hover{color:var(--oro-soft)}
+@media(max-width:880px){.nav__links{display:none}}
+
+/* cabeçalho do guia */
+.top{padding:calc(var(--navh) + clamp(56px,9vw,104px)) 0 clamp(50px,7vw,80px);position:relative;overflow:hidden}
+.top::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(110% 70% at 50% -10%,rgba(201,161,91,.12),transparent 60%)}
+.top__in{position:relative;max-width:720px}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--oro)}
+.sec--cedro .eyebrow{color:var(--oro-ink)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(31px,5.4vw,60px);line-height:1.1;margin-top:18px;letter-spacing:-.018em}
+h1 em{font-style:italic;color:var(--oro-soft)}
+.top__lead{font-family:var(--display);font-size:clamp(17px,2.1vw,21px);line-height:1.55;color:var(--ash-dim);margin-top:26px;max-width:600px}
+
+/* índice */
+.toc{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px}
+.toc a{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  padding:9px 15px;border:1px solid var(--line-dark);border-radius:1px;color:var(--ash-faint);
+  transition:border-color .25s ease,color .25s ease;
+}
+.toc a:hover{border-color:var(--oro);color:var(--oro-soft)}
+
+/* seções */
+section{padding:clamp(66px,9vw,110px) 0;scroll-margin-top:calc(var(--navh) + 14px)}
+.sec--cedro{background:var(--cedro);color:var(--ink)}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(25px,3.7vw,39px);line-height:1.16;letter-spacing:-.012em}
+h2 em{font-style:italic;color:var(--oro-soft)}
+.sec--cedro h2 em{color:var(--oro-ink)}
+.rule{width:40px;height:1px;background:var(--oro);margin-top:22px}
+.sec--cedro .rule{background:var(--oro-ink)}
+.sec__head h2{margin-top:16px}
+.lead{font-size:16.5px;margin-top:22px;max-width:620px;color:var(--ash-dim)}
+.sec--cedro .lead{color:var(--muted)}
+
+.prose{max-width:660px;margin-top:34px}
+.prose p{font-size:16.5px;line-height:1.8;color:var(--ash-dim);margin-bottom:20px}
+.sec--cedro .prose p{color:var(--ink-2)}
+.prose p:last-child{margin-bottom:0}
+.prose strong{font-weight:500;color:var(--ash)}
+.sec--cedro .prose strong{color:var(--ink)}
+
+/* diagrama */
+.fig{margin-top:42px}
+.fig svg{width:100%;height:auto;display:block}
+.fig figcaption{
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin-top:18px;padding-top:14px;border-top:1px solid var(--line-light);
+}
+.dg-label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;fill:var(--oro-ink)}
+.dg-sub{font-family:var(--sans);font-size:12.5px;fill:var(--muted)}
+.dg-line{stroke:var(--line-light);stroke-width:1}
+
+/* origens */
+.origens{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:1px;margin-top:44px;background:var(--line-dark);border:1px solid var(--line-dark)}
+.org{background:var(--humo);padding:clamp(24px,3.4vw,32px)}
+.org__n{font-family:var(--display);font-size:clamp(19px,2.3vw,23px);line-height:1.25}
+.org__tag{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--oro);margin-top:9px}
+.org__d{font-size:15px;line-height:1.72;color:var(--ash-dim);margin-top:14px}
+
+/* passos */
+.passos{margin-top:44px;border-top:1px solid var(--line-light)}
+.passo{display:grid;grid-template-columns:118px 1fr;gap:clamp(16px,4vw,40px);padding:26px 0;border-bottom:1px solid var(--line-light);align-items:baseline}
+.passo__k{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--oro-ink)}
+.passo__t{font-family:var(--display);font-size:clamp(19px,2.3vw,23px);line-height:1.3}
+.passo__d{font-size:15.5px;line-height:1.74;color:var(--muted);margin-top:8px}
+@media(max-width:700px){.passo{grid-template-columns:1fr;gap:8px;align-items:start}}
+
+/* erros — vive sobre o cedro, então usa a paleta clara */
+.erros__t{margin-top:clamp(46px,6vw,64px)}
+.erros{max-width:700px;margin-top:26px;list-style:none;border-top:1px solid var(--line-light)}
+.erros li{
+  display:grid;grid-template-columns:26px 1fr;gap:0 14px;
+  padding:20px 0;border-bottom:1px solid var(--line-light);
+}
+.erros li::before{
+  content:"×";font-family:var(--mono);font-size:17px;line-height:1.3;
+  color:var(--oro-ink);
+}
+.erros__n{
+  font-family:var(--display);font-size:clamp(18px,2.2vw,21px);
+  line-height:1.3;color:var(--ink);
+}
+.erros__d{font-size:15.5px;line-height:1.72;color:var(--muted);margin-top:6px}
+
+/* glossário */
+.glos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px clamp(28px,5vw,54px);margin-top:42px}
+.glos dt{font-family:var(--display);font-size:19px;line-height:1.25}
+.glos dd{font-size:15px;line-height:1.7;color:var(--muted);margin-top:7px}
+
+/* chamada final */
+.cta{text-align:center;max-width:640px;margin:0 auto}
+.cta h2{margin-top:16px}
+.cta__b{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+
+/* rodapé */
+footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--line-dark)}
+.foot__in{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot__brand{font-family:var(--display);font-size:18px;letter-spacing:.2em;color:var(--ash);padding-left:.2em}
+.foot__note{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ash-faint)}
+.legal{margin-top:32px;padding-top:26px;border-top:1px solid var(--line-dark);font-size:13px;line-height:1.75;color:var(--ash-faint);max-width:760px}
+.legal strong{color:var(--ash-dim);font-weight:500}
+.legal p+p{margin-top:10px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .btn:hover{transform:none}
+}
+</style>
+
+<noscript><style>.rv{opacity:1 !important;transform:none !important}.gate{display:none !important}</style></noscript>
+</head>
+<body>
+
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateQ">
+  <div class="gate__box">
+    <div class="gate__mark">ALPAG CIGAR</div>
+    <p class="gate__q" id="gateQ">Você tem 18 anos ou mais?</p>
+    <p class="gate__note">Este conteúdo trata de produtos derivados do tabaco. O acesso é restrito a maiores de idade.</p>
+    <div class="gate__btns">
+      <button type="button" class="btn btn--gold" id="gateYes">Tenho 18 anos ou mais</button>
+      <button type="button" class="btn btn--ghost" id="gateNo">Sou menor de 18</button>
+    </div>
+    <p class="gate__deny">O acesso é permitido apenas a maiores de 18 anos.<br>Obrigado pela visita.</p>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a href="index.html" class="brand" aria-label="ALPAG CIGAR, voltar ao início">ALPAG <span class="brand__c">CIGAR</span></a>
+    <nav class="nav__links" aria-label="Navegação principal">
+      <a href="index.html#tempo">O tempo</a>
+      <a href="index.html#vitolas">Vitolas</a>
+      <a href="index.html#casa">A casa</a>
+      <a href="#anatomia">Guia</a>
+      <a href="index.html#visita">Visita</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ABERTURA -->
+  <div class="top">
+    <div class="wrap top__in">
+      <p class="eyebrow rv">Guia para começar</p>
+      <h1 class="rv">Ninguém nasce sabendo<br><em>acender um charuto.</em></h1>
+      <p class="top__lead rv">
+        Este guia cobre o que costuma travar quem está começando: as partes do
+        charuto, o que muda de um país para outro, como cortar sem estragar,
+        como acender, em que ritmo fumar e como guardar. Sem jargão obrigatório.
+      </p>
+      <nav class="toc rv" aria-label="Índice do guia">
+        <a href="#anatomia">Anatomia</a>
+        <a href="#origens">Origens</a>
+        <a href="#capa">A capa</a>
+        <a href="#corte">O corte</a>
+        <a href="#fogo">O fogo</a>
+        <a href="#ritmo">O ritmo</a>
+        <a href="#guarda">A guarda</a>
+        <a href="#glossario">Glossário</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ANATOMIA -->
+  <section id="anatomia" class="sec--cedro">
+    <div class="wrap wrap--tight">
+      <div class="sec__head rv">
+        <p class="eyebrow">01 · Anatomia</p>
+        <h2>Um charuto tem <em>três folhas</em> e duas pontas</h2>
+        <div class="rule"></div>
+      </div>
+
+      <figure class="fig rv">
+        <svg viewBox="0 0 800 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="figT">
+          <title id="figT">Diagrama das partes de um charuto: pé, capa, anilha, cabeça e o corte transversal mostrando tripa, capote e capa</title>
+
+          <!-- corpo do charuto -->
+          <defs>
+            <linearGradient id="leaf" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7A5638"/>
+              <stop offset="55%" stop-color="#57391F"/>
+              <stop offset="100%" stop-color="#3A2413"/>
+            </linearGradient>
+          </defs>
+
+          <path d="M150 96 H672 a34 34 0 0 1 0 68 H150 Z" fill="url(#leaf)"/>
+          <!-- pé exposto -->
+          <ellipse cx="150" cy="130" rx="9" ry="34" fill="#8A6A45"/>
+          <ellipse cx="150" cy="130" rx="5" ry="22" fill="#6B4E2E"/>
+          <!-- anilha -->
+          <rect x="560" y="94" width="72" height="72" fill="#C9A15B"/>
+          <rect x="560" y="102" width="72" height="1.6" fill="#8A5C2E"/>
+          <rect x="560" y="156" width="72" height="1.6" fill="#8A5C2E"/>
+
+          <!-- linhas guia -->
+          <line class="dg-line" x1="150" y1="88" x2="150" y2="56"/>
+          <line class="dg-line" x1="150" y1="56" x2="196" y2="56"/>
+          <line class="dg-line" x1="360" y1="96" x2="360" y2="56"/>
+          <line class="dg-line" x1="360" y1="56" x2="406" y2="56"/>
+          <line class="dg-line" x1="596" y1="94" x2="596" y2="56"/>
+          <line class="dg-line" x1="596" y1="56" x2="642" y2="56"/>
+          <line class="dg-line" x1="694" y1="164" x2="694" y2="198"/>
+          <line class="dg-line" x1="694" y1="198" x2="640" y2="198"/>
+
+          <text class="dg-label" x="196" y="52">Pé</text>
+          <text class="dg-sub" x="196" y="72">a ponta que acende</text>
+          <text class="dg-label" x="406" y="52">Capa</text>
+          <text class="dg-sub" x="406" y="72">a folha que se vê</text>
+          <text class="dg-label" x="642" y="52">Anilha</text>
+          <text class="dg-label" x="640" y="203" text-anchor="end">Cabeça</text>
+          <text class="dg-sub" x="640" y="223" text-anchor="end">a ponta que se corta</text>
+
+          <!-- corte transversal -->
+          <circle cx="168" cy="268" r="48" fill="#3A2413"/>
+          <circle cx="168" cy="268" r="40" fill="#57391F"/>
+          <circle cx="168" cy="268" r="31" fill="#7A5638"/>
+          <line class="dg-line" x1="216" y1="248" x2="268" y2="248"/>
+          <line class="dg-line" x1="204" y1="268" x2="268" y2="268"/>
+          <line class="dg-line" x1="199" y1="288" x2="268" y2="288"/>
+          <text class="dg-label" x="278" y="252">Capa</text>
+          <text class="dg-label" x="278" y="272">Capote</text>
+          <text class="dg-label" x="278" y="292">Tripa</text>
+          <text class="dg-sub" x="420" y="252">folha externa, define o visual e parte do sabor</text>
+          <text class="dg-sub" x="420" y="272">folha que amarra o recheio</text>
+          <text class="dg-sub" x="420" y="292">o miolo, onde mora a força</text>
+        </svg>
+        <figcaption>As partes de um charuto e o corte transversal</figcaption>
+      </figure>
+
+      <div class="prose rv">
+        <p>
+          A <strong>tripa</strong> é o recheio: um punhado de folhas dobradas no
+          comprimento, e é dela que vem quase toda a força. As folhas do topo da
+          planta receberam mais sol e entram aqui quando se quer intensidade; as
+          de baixo entram para garantir que o charuto queime bem.
+        </p>
+        <p>
+          O <strong>capote</strong> segura esse maço no lugar. É uma folha
+          resistente e nada bonita, porque ninguém vai vê-la.
+        </p>
+        <p>
+          A <strong>capa</strong> é a última camada, a que aparece. É a folha mais
+          cara do charuto: precisa ser lisa, elástica, sem nervura marcada e de cor
+          uniforme. Ela responde por uma fatia do sabor bem menor do que a fama
+          sugere — mas responde por toda a primeira impressão.
+        </p>
+        <p>
+          Nas pontas: o <strong>pé</strong> é a extremidade aberta, que recebe o
+          fogo. A <strong>cabeça</strong> é a ponta fechada por uma tampa de folha
+          colada, que vai à boca e precisa ser cortada antes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGENS -->
+  <section id="origens">
+    <div class="wrap">
+      <div class="sec__head rv">
+        <p class="eyebrow">02 · Origens</p>
+        <h2>O país muda <em>o sabor</em></h2>
+        <div class="rule"></div>
+        <p class="lead">
+          Solo, clima e método de fermentação dão a cada região um caráter
+          reconhecível. Não existe origem melhor — existe a que combina com o
+          seu paladar hoje.
+        </p>
+      </div>
+
+      <div class="origens">
+        <div class="org rv">
+          <div class="org__n">Cuba</div>
+          <div class="org__tag">Vuelta Abajo</div>
+          <p class="org__d">
+            Perfil terroso e amadeirado, com um amargor de café que é a marca da
+            casa. Corpo médio na maior parte das vezes, e uma consistência de
+            construção que virou referência mundial.
+          </p>
+        </div>
+        <div class="org rv">
+          <div class="org__n">Nicarágua</div>
+          <div class="org__tag">Estelí · Jalapa</div>
+          <p class="org__d">
+            Solo vulcânico, folha forte. Pimenta, terra e um dulçor escuro no
+            fundo. É a origem que mais cresceu nas últimas duas décadas e onde
+            está a melhor relação entre preço e intensidade.
+          </p>
+        </div>
+        <div class="org rv">
+          <div class="org__n">República Dominicana</div>
+          <div class="org__tag">Cibao</div>
+          <p class="org__d">
+            O lado suave e cremoso. Amêndoa, cedro, baunilha. É de longe a
+            origem mais amigável para quem está começando e não quer levar um
+            susto na terceira tragada.
+          </p>
+        </div>
+        <div class="org rv">
+          <div class="org__n">Honduras</div>
+          <div class="org__tag">Jamastrán</div>
+          <p class="org__d">
+            Meio-termo robusto: mais encorpado que o dominicano, mais domado que
+            o nicaraguense. Costuma trazer nota de couro e madeira seca.
+          </p>
+        </div>
+        <div class="org rv">
+          <div class="org__n">Brasil</div>
+          <div class="org__tag">Recôncavo Baiano</div>
+          <p class="org__d">
+            Mata Fina e Mata Norte são fumos reconhecidos internacionalmente e
+            usados por fabricantes de fora. Perfil doce e levemente adocicado no
+            fim, com boa queima. É a origem mais subestimada do mercado — e a
+            que você encontra por preço justo, sem câmbio no meio.
+          </p>
+        </div>
+        <div class="org rv">
+          <div class="org__n">Equador</div>
+          <div class="org__tag">Capa</div>
+          <p class="org__d">
+            Quase não faz charuto inteiro, mas produz boa parte das capas do
+            mundo. O céu nublado permanente cria folhas finas e sedosas, ideais
+            para a camada externa.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPA -->
+  <section id="capa" class="sec--cedro">
+    <div class="wrap wrap--tight">
+      <div class="sec__head rv">
+        <p class="eyebrow">03 · A capa</p>
+        <h2>Cor escura não quer dizer <em>charuto forte</em></h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="prose rv">
+        <p>
+          Esse é o mal-entendido mais comum do balcão. A cor da capa vem de
+          quanto tempo aquela folha passou fermentando e de quanto sol ela pegou
+          — não da força do charuto, que mora na tripa, escondida.
+        </p>
+        <p>
+          <strong>Claro</strong> e <strong>Colorado</strong> são as capas
+          castanho-claras e avermelhadas, geralmente mais secas e amadeiradas no
+          sabor. <strong>Maduro</strong> é a capa escura, quase preta, resultado
+          de fermentação longa: costuma ser a <em>mais doce</em> das três, com
+          nota de café e chocolate.
+        </p>
+        <p>
+          Ou seja: um maduro pode perfeitamente ser mais suave que um claro. Se
+          alguém te oferecer o escuro dizendo que é "o forte", desconfie.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORTE -->
+  <section id="corte">
+    <div class="wrap">
+      <div class="sec__head rv">
+        <p class="eyebrow">04 · O corte</p>
+        <h2>Corte pouco. <em>Não dá para desfazer.</em></h2>
+        <div class="rule"></div>
+        <p class="lead">
+          A regra única: tire só a tampa, cerca de 2 a 3 milímetros. Se você
+          cortar abaixo do ponto onde a capa se fecha, o charuto desmancha na
+          boca e não tem conserto.
+        </p>
+      </div>
+
+      <div class="passos">
+        <div class="passo rv">
+          <div class="passo__k">Guilhotina</div>
+          <div>
+            <div class="passo__t">Corte reto, duas lâminas</div>
+            <p class="passo__d">
+              O padrão, e o que eu recomendaria para quem está começando. Duas
+              lâminas fecham ao mesmo tempo e o corte sai limpo. Guilhotina de
+              lâmina única esmaga em vez de cortar — não economize nisso.
+            </p>
+          </div>
+        </div>
+        <div class="passo rv">
+          <div class="passo__k">Punch</div>
+          <div>
+            <div class="passo__t">Furo circular</div>
+            <p class="passo__d">
+              Abre um buraco no centro sem remover a tampa. Concentra a fumaça,
+              deixa o sabor mais intenso e evita folha solta na boca. Não serve
+              para charuto de anel fino nem para ponta pontuda.
+            </p>
+          </div>
+        </div>
+        <div class="passo rv">
+          <div class="passo__k">Corte em V</div>
+          <div>
+            <div class="passo__t">Canal em cunha</div>
+            <p class="passo__d">
+              Abre uma fenda funda em vez de um círculo. Bom fluxo sem
+              desestruturar a cabeça. Divide opiniões: alguns acham que
+              concentra alcatrão na fenda.
+            </p>
+          </div>
+        </div>
+        <div class="passo rv">
+          <div class="passo__k">Sem cortador</div>
+          <div>
+            <div class="passo__t">O que fazer no aperto</div>
+            <p class="passo__d">
+              Uma faca bem afiada, apoiando o charuto numa superfície e girando
+              contra a lâmina, resolve. Morder ou arrancar com a unha, não —
+              rasga a capa e o charuto começa a se abrir pelo caminho.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOGO -->
+  <section id="fogo" class="sec--cedro">
+    <div class="wrap wrap--tight">
+      <div class="sec__head rv">
+        <p class="eyebrow">05 · O fogo</p>
+        <h2>Acender leva <em>um minuto</em>, e é tempo bem gasto</h2>
+        <div class="rule"></div>
+        <p class="lead">
+          Um charuto mal aceso queima torto do começo ao fim e não tem como
+          corrigir depois. Vale a paciência.
+        </p>
+      </div>
+
+      <div class="passos">
+        <div class="passo rv">
+          <div class="passo__k">Primeiro</div>
+          <div>
+            <div class="passo__t">Escolha a chama certa</div>
+            <p class="passo__d">
+              Isqueiro de maçarico (butano, sem cheiro) ou fósforo longo de
+              madeira. Isqueiro comum de fluido deixa gosto de combustível nas
+              primeiras tragadas, e fósforo curto queima seu dedo antes da hora.
+            </p>
+          </div>
+        </div>
+        <div class="passo rv">
+          <div class="passo__k">Segundo</div>
+          <div>
+            <div class="passo__t">Toste o pé sem encostar</div>
+            <p class="passo__d">
+              Mantenha a chama uns dois centímetros abaixo do pé e gire o charuto
+              devagar, sem levar à boca ainda. A borda vai escurecendo por
+              igual. Encostar a chama na folha queima e amarga.
+            </p>
+          </div>
+        </div>
+        <div class="passo rv">
+          <div class="passo__k">Terceiro</div>
+          <div>
+            <div class="passo__t">Puxe girando</div>
+            <p class="passo__d">
+              Agora leve à boca e dê tragadas curtas enquanto continua girando,
+              com a chama próxima. Poucas tragadas bastam.
+            </p>
+          </div>
+        </div>
+        <div class="passo rv">
+          <div class="passo__k">Quarto</div>
+          <div>
+            <div class="passo__t">Confira a brasa</div>
+            <p class="passo__d">
+              Sopre de leve no pé: a brasa deve estar acesa por toda a
+              circunferência. Se ficou um lado apagado, volte a chama só naquele
+              ponto. Corrigir agora custa dez segundos; ignorar custa a hora
+              inteira.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RITMO -->
+  <section id="ritmo">
+    <div class="wrap">
+      <div class="sec__head rv">
+        <p class="eyebrow">06 · O ritmo</p>
+        <h2>Devagar. <em>Charuto não é cigarro.</em></h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="prose rv">
+        <p>
+          <strong>Não se traga.</strong> A fumaça vai até a boca, circula e sai.
+          Puxar para o pulmão é desagradável, dá enjoo e não é assim que o sabor
+          aparece — ele está no paladar e no retronasal, não no peito.
+        </p>
+        <p>
+          <strong>Uma tragada por minuto, mais ou menos.</strong> Puxar demais
+          superaquece a brasa, e um charuto quente fica amargo e áspero.
+          Superaquecer é o erro que mais estraga charuto bom.
+        </p>
+        <p>
+          <strong>Deixe a cinza crescer.</strong> Dois a três centímetros. A
+          cinza funciona como isolante e ajuda a manter a brasa fria. Bater a
+          cada tragada é ansiedade, não técnica.
+        </p>
+        <p>
+          <strong>Coma antes.</strong> De estômago vazio, a nicotina bate forte —
+          é o famoso enjoo de principiante, e não tem nada a ver com a qualidade
+          do charuto.
+        </p>
+        <p>
+          <strong>Pare quando quiser.</strong> Não existe obrigação de fumar até
+          o fim. Quando esquentar demais ou o sabor virar, apoie e deixe apagar
+          sozinho. Charuto apagado e retomado no dia seguinte fica ruim: se
+          parou, acabou.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARDA -->
+  <section id="guarda" class="sec--cedro">
+    <div class="wrap wrap--tight">
+      <div class="sec__head rv">
+        <p class="eyebrow">07 · A guarda</p>
+        <h2>Sessenta e cinco a setenta <em>por cento</em></h2>
+        <div class="rule"></div>
+        <p class="lead">
+          Charuto é matéria viva e só se mantém dentro de uma faixa estreita de
+          umidade. Fora dela, estraga — em semanas, e sem volta.
+        </p>
+      </div>
+
+      <div class="prose rv">
+        <p>
+          <strong>Seco demais</strong> (abaixo de 60%): a capa racha, o charuto
+          queima rápido e o sabor fica áspero e sem doçura. É o destino de todo
+          charuto guardado em gaveta.
+        </p>
+        <p>
+          <strong>Úmido demais</strong> (acima de 75%): não puxa direito, apaga
+          toda hora, e existe risco de mofo e de bicho-do-tabaco eclodir dentro
+          da folha. Um charuto com furinhos foi comido por dentro.
+        </p>
+        <p>
+          A temperatura importa quase tanto: entre 18 e 21 °C. Calor com
+          umidade alta é justamente o que faz o ovo do besouro chocar.
+        </p>
+        <p>
+          O <strong>humidor</strong> é uma caixa forrada em cedro espanhol, que
+          além de estabilizar a umidade acrescenta aroma. Caixa nova precisa ser
+          temperada antes do primeiro charuto. Compre um higrômetro digital
+          separado — os analógicos que vêm de brinde quase nunca são confiáveis.
+        </p>
+        <p>
+          <strong>Para poucos charutos</strong>, um pote de vidro hermético com
+          um sachê de umidade controlada resolve muito bem e custa quase nada.
+          Não é gambiarra: mantém melhor que humidor barato mal vedado.
+        </p>
+      </div>
+
+      <p class="eyebrow erros__t rv">O que não fazer</p>
+      <ul class="erros rv">
+        <li>
+          <div>
+            <div class="erros__n">Geladeira</div>
+            <p class="erros__d">Resseca a folha e passa cheiro de comida.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="erros__n">Esponja ou algodão molhado</div>
+            <p class="erros__d">Umidade descontrolada e mofo quase certo.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="erros__n">Deixar no tubo de alumínio por meses</div>
+            <p class="erros__d">O tubo protege no transporte, não conserva.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="erros__n">Água da torneira no umidificador</div>
+            <p class="erros__d">Os minerais entopem a espuma e criam fungo. Use destilada.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="erros__n">Guardar junto de aromatizados</div>
+            <p class="erros__d">O aroma migra e contamina todos os outros charutos.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- GLOSSÁRIO -->
+  <section id="glossario">
+    <div class="wrap">
+      <div class="sec__head rv">
+        <p class="eyebrow">08 · Glossário</p>
+        <h2>As palavras que <em>você vai ouvir</em></h2>
+        <div class="rule"></div>
+      </div>
+
+      <dl class="glos rv">
+        <div>
+          <dt>Vitola</dt>
+          <dd>O formato do charuto: comprimento e diâmetro. Robusto, Toro e Churchill são vitolas.</dd>
+        </div>
+        <div>
+          <dt>Anel</dt>
+          <dd>O diâmetro, medido em 64 avos de polegada. Anel 50 equivale a cerca de 20 mm.</dd>
+        </div>
+        <div>
+          <dt>Anilha</dt>
+          <dd>A faixa de papel perto da cabeça. Tire só depois de fumar um pouco, quando a goma amolece.</dd>
+        </div>
+        <div>
+          <dt>Puro</dt>
+          <dd>Charuto feito inteiramente com folhas de um único país.</dd>
+        </div>
+        <div>
+          <dt>Ligero, seco, volado</dt>
+          <dd>As folhas da tripa conforme a altura no pé: ligero é a de cima e a mais forte, volado a de baixo e a que melhor queima.</dd>
+        </div>
+        <div>
+          <dt>Torcedor</dt>
+          <dd>Quem enrola o charuto à mão. Um bom torcedor faz algumas centenas por dia.</dd>
+        </div>
+        <div>
+          <dt>Retronasal</dt>
+          <dd>Soltar um pouco de fumaça pelo nariz. É onde metade do sabor aparece — comece com pouco.</dd>
+        </div>
+        <div>
+          <dt>Túnel</dt>
+          <dd>Quando o miolo queima na frente da capa. Sinal de charuto seco ou mal aceso.</dd>
+        </div>
+        <div>
+          <dt>Temperar</dt>
+          <dd>Umedecer o cedro de um humidor novo antes do primeiro uso, para que ele não roube umidade dos charutos.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- CHAMADA -->
+  <section class="sec--cedro">
+    <div class="wrap cta">
+      <p class="eyebrow rv">Próximo passo</p>
+      <h2 class="rv">O resto se aprende <em>junto conosco</em>.</h2>
+      <div class="rule rule--center rv" style="margin-left:auto;margin-right:auto"></div>
+      <p class="lead rv" style="margin-left:auto;margin-right:auto">
+        O texto ajuda até certo ponto, porém, acesse nossa loja, e nos diga o
+        que leu aqui e o que ainda não entendeu, nós iremos lhe explicar.
+      </p>
+      <div class="cta__b rv">
+        <a href="https://wa.me/5549998226818" class="btn btn--dark" target="_blank" rel="noopener">Converse conosco</a>
+        <a href="index.html#vitolas" class="btn btn--line">Ver os formatos</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot__in">
+      <div class="foot__brand">ALPAG <span class="brand__c">CIGAR</span></div>
+      <div class="foot__note">© 2026 ALPAG CIGAR · Todos os direitos reservados</div>
+    </div>
+    <div class="legal">
+      <p>
+        <strong>Venda proibida a menores de 18 anos.</strong> O uso de produtos
+        derivados do tabaco causa doenças graves.
+      </p>
+      <p>
+        Conteúdo informativo. Este site é institucional e
+        <strong>não realiza vendas</strong>: não há catálogo, preços ou pedidos
+        on-line. A comercialização acontece exclusivamente de forma presencial,
+        no interior do estabelecimento, conforme a Lei nº 9.294/1996 e o Decreto
+        nº 2.018/1996.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var gate=document.getElementById('gate'), KEY='alpag_age_ok', passed=false;
+  try{passed=sessionStorage.getItem(KEY)==='1';}catch(e){}
+  if(passed){gate.hidden=true;}
+  else{
+    document.body.style.overflow='hidden';
+    document.getElementById('gateYes').addEventListener('click',function(){
+      try{sessionStorage.setItem(KEY,'1');}catch(e){}
+      gate.hidden=true;document.body.style.overflow='';
+    });
+    document.getElementById('gateNo').addEventListener('click',function(){
+      gate.classList.add('denied');
+    });
+  }
+
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('solid',window.scrollY>40);}
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  var items=document.querySelectorAll('.rv');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    items.forEach(function(el){el.classList.add('in');});return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  items.forEach(function(el){io.observe(el);});
+
+  function showTop(){
+    document.querySelectorAll('.top .rv').forEach(function(el){el.classList.add('in');});
+  }
+  window.addEventListener('load',showTop);
+  setTimeout(showTop,80);
+})();
+</script>
+</body>
+</html>
